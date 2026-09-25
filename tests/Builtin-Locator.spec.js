@@ -16,10 +16,4 @@ test("BuiltIn Locator",async({page})=>{
 
    await expect(page.getByText("Products")).toBeVisible()
   
-
-  
-
-
-
-   
-})
+ })
