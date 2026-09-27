@@ -1,6 +1,6 @@
 const {test,expect}= require("@playwright/test")
 test("Soft Assertions",async({page})=>{
-     await page.goto("https://testautomationpractice.blogspot.com/" )
+     await page.goto("https://testautomationpractice.blogspot.com/", {waitUntil: "domcontentloaded"} )
 
      await expect(page).toHaveURL("https://testautomationpractice.blogspot.com/")
 
@@ -11,5 +11,9 @@ test("Soft Assertions",async({page})=>{
      await expect(page.locator("//input[@id='name']")).toBeEnabled()
 
      await page.locator("#name").fill("Roy")
+
+     await page.waitForTimeout(5000) // wait for 5 seconds
+
+     await page.fill("#email","wasif1@email.com")
 
 })
